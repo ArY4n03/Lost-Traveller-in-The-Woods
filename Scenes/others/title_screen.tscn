@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwfpi8rgn64jc"]
+
+[ext_resource type="Texture2D" uid="uid://yg8tdjm5r571" path="res://Sprites/grass tile.png" id="1_p02mm"]
+[ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_teuh2"]
+[ext_resource type="Theme" uid="uid://dayy82ieyoow2" path="res://Theme/theme1.tres" id="2_olqly"]
+[ext_resource type="Texture2D" uid="uid://btbx6to2bx5l7" path="res://Sprites/light2.png" id="4_6hnqq"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_teuh2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.11
+anchor_top = -0.222
+offset_left = -64.28
+offset_top = 41.856
+offset_right = 1416.0
+offset_bottom = 841.0
+texture = ExtResource("1_p02mm")
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = -65.0
+offset_right = 211.0
+offset_bottom = 65.0
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_olqly")
+theme_override_font_sizes/font_size = 50
+text = "Play"
+flat = true
+
+[node name="Controls" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_olqly")
+theme_override_font_sizes/font_size = 50
+text = "Controls"
+flat = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.617455, 0.617455, 0.617455, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(412, 308)
+energy = 1.32
+texture = ExtResource("4_6hnqq")
+texture_scale = 4.02
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -155.0
+offset_top = -63.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_olqly")
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+flat = true
+
+[node name="Popup" type="Popup" parent="."]
+initial_position = 1
+size = Vector2i(166, 100)
+
+[node name="Label" type="Label" parent="Popup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -11.5
+offset_right = 83.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Created By Aryan Soy"
+
+[connection signal="button_up" from="VBoxContainer/Play" to="." method="_on_play_button_up"]
+[connection signal="button_up" from="Credits" to="." method="_on_credits_button_up"]

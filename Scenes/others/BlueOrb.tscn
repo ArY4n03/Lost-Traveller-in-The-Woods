@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://ci3mhcw4maaxi"]
+
+[ext_resource type="PackedScene" uid="uid://bexdglfhfhccm" path="res://Scenes/others/intractable_entity.tscn" id="1_1y4jg"]
+[ext_resource type="Script" path="res://Scripts/blue_orb.gd" id="2_3kl3h"]
+[ext_resource type="Texture2D" uid="uid://cuco1a7r3wjs0" path="res://Sprites/blue orb.png" id="2_wgh0b"]
+[ext_resource type="Texture2D" uid="uid://bxjlsk0yu3y45" path="res://Sprites/light.png" id="3_2dl8i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p6eht"]
+radius = 18.1108
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bc3um"]
+radius = 26.0768
+
+[node name="BlueOrb" instance=ExtResource("1_1y4jg")]
+script = ExtResource("2_3kl3h")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_wgh0b")
+
+[node name="CollisionShape2D" parent="." index="1"]
+texture_filter = 1
+shape = SubResource("CircleShape2D_p6eht")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_bc3um")
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="3"]
+energy = 0.92
+texture = ExtResource("3_2dl8i")
+texture_scale = 5.41

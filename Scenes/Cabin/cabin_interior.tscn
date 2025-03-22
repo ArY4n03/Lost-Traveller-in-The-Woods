@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu0tscy6skcyo"]
+
+[ext_resource type="Texture2D" uid="uid://dypgrcqdqppe2" path="res://Sprites/cabin tile.png" id="1_u6sxq"]
+[ext_resource type="PackedScene" uid="uid://bxppgon8f1dap" path="res://Scenes/Player/player.tscn" id="2_uf4q6"]
+
+[node name="Cabin Interior" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 2332.0
+offset_bottom = 1814.0
+texture = ExtResource("1_u6sxq")
+stretch_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("2_uf4q6")]
+position = Vector2(831, 593)

@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtjmovqbbxcam"]
+
+[ext_resource type="Script" path="res://Scripts/blue_orb_mini_game.gd" id="1_1ben0"]
+[ext_resource type="Texture2D" uid="uid://yg8tdjm5r571" path="res://Sprites/grass tile.png" id="1_nqdwk"]
+[ext_resource type="Texture2D" uid="uid://cuco1a7r3wjs0" path="res://Sprites/blue orb.png" id="3_g2iuq"]
+[ext_resource type="Texture2D" uid="uid://blja7yao35c1" path="res://Sprites/dice (1).png" id="3_hj0nl"]
+[ext_resource type="Texture2D" uid="uid://dtlprvg7nlxt5" path="res://Sprites/flag.png" id="4_qw15b"]
+[ext_resource type="Theme" uid="uid://dayy82ieyoow2" path="res://Theme/theme1.tres" id="5_83lyu"]
+
+[node name="BlueOrbMiniGame" type="Node2D"]
+script = ExtResource("1_1ben0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_right = 1231.0
+offset_bottom = 701.0
+pivot_offset = Vector2(431, 202)
+texture = ExtResource("1_nqdwk")
+
+[node name="Blue orb" type="Sprite2D" parent="."]
+position = Vector2(180, 234)
+texture = ExtResource("3_g2iuq")
+
+[node name="Flag" type="Sprite2D" parent="."]
+position = Vector2(800, 234)
+texture = ExtResource("4_qw15b")
+
+[node name="dice" type="Sprite2D" parent="."]
+position = Vector2(548, 430)
+texture = ExtResource("3_hj0nl")
+
+[node name="RollDiceBtn" type="Button" parent="."]
+offset_left = 510.0
+offset_top = 506.0
+offset_right = 593.0
+offset_bottom = 569.0
+theme = ExtResource("5_83lyu")
+theme_override_font_sizes/font_size = 50
+text = "ROLL
+"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 372.0
+offset_top = 64.0
+offset_right = 664.0
+offset_bottom = 119.0
+theme = ExtResource("5_83lyu")
+theme_override_font_sizes/font_size = 50
+text = "        Roll Dice"
+
+[connection signal="button_up" from="RollDiceBtn" to="." method="roll_dice"]

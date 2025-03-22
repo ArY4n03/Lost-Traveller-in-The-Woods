@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://btlfo7rrt4auo"]
+
+[ext_resource type="Script" path="res://Scripts/questions.gd" id="1_m8hth"]
+[ext_resource type="Texture2D" uid="uid://yg8tdjm5r571" path="res://Sprites/grass tile.png" id="1_omxnv"]
+[ext_resource type="Theme" uid="uid://dayy82ieyoow2" path="res://Theme/theme1.tres" id="2_vx0j2"]
+[ext_resource type="Texture2D" uid="uid://bpmsl1nhxlq6y" path="res://Sprites/question text border.png" id="4_l55w4"]
+[ext_resource type="AudioStream" uid="uid://c3l83yj1yb3is" path="res://Sound Effects/zapsplat_horror_jump_scare_bright_hit_discordant_long_tail_635447.mp3" id="5_ah1b8"]
+
+[node name="Questions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m8hth")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_right = 1183.0
+offset_bottom = 662.0
+theme = ExtResource("2_vx0j2")
+texture = ExtResource("1_omxnv")
+stretch_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -393.0
+offset_top = -148.0
+offset_right = 165.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -282.0
+offset_top = -152.0
+offset_right = 62.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 200
+
+[node name="Option 1" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_vx0j2")
+text = "option 2"
+
+[node name="Option 2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_vx0j2")
+text = "option 2"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(949, 370)
+scale = Vector2(5, 5)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(457, 330)
+texture = ExtResource("4_l55w4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ah1b8")

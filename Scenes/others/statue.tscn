@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://cabj1n727ua6w"]
+
+[ext_resource type="PackedScene" uid="uid://bexdglfhfhccm" path="res://Scenes/others/intractable_entity.tscn" id="1_uj3ll"]
+[ext_resource type="Script" path="res://Scripts/statue.gd" id="2_42ga3"]
+[ext_resource type="Texture2D" uid="uid://bqrw2251ax1q4" path="res://Sprites/statue.png" id="3_s7heq"]
+[ext_resource type="Texture2D" uid="uid://btbx6to2bx5l7" path="res://Sprites/light2.png" id="4_fyaww"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcx3a"]
+size = Vector2(36, 57)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2l0s"]
+radius = 37.3363
+
+[node name="Statue" instance=ExtResource("1_uj3ll")]
+scale = Vector2(1.4, 1.4)
+script = ExtResource("2_42ga3")
+
+[node name="Sprite2D" parent="." index="0"]
+texture_filter = 1
+texture = ExtResource("3_s7heq")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1, -2.5)
+shape = SubResource("RectangleShape2D_bcx3a")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_h2l0s")
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="3"]
+color = Color(0, 0.3314, 0.868039, 1)
+texture = ExtResource("4_fyaww")
+texture_scale = 2.49

@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://b63b3jo5sfln1"]
+
+[ext_resource type="PackedScene" uid="uid://bexdglfhfhccm" path="res://Scenes/others/intractable_entity.tscn" id="1_he68i"]
+[ext_resource type="Script" path="res://Scripts/unknown_character.gd" id="2_d1tqy"]
+[ext_resource type="Texture2D" uid="uid://bb8ouovooamjd" path="res://Sprites/unknownCharacter.png" id="3_7dekc"]
+[ext_resource type="Texture2D" uid="uid://bxjlsk0yu3y45" path="res://Sprites/light.png" id="4_3agkw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ric3k"]
+size = Vector2(42, 68)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3i1mr"]
+radius = 53.3385
+
+[node name="StaticBody2D" instance=ExtResource("1_he68i")]
+script = ExtResource("2_d1tqy")
+
+[node name="Sprite2D" parent="." index="0"]
+texture_filter = 1
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("3_7dekc")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_ric3k")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_3i1mr")
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="3"]
+position = Vector2(2, -3)
+color = Color(0.704478, 0.699389, 0, 1)
+texture = ExtResource("4_3agkw")
+texture_scale = 2.12
+height = 10.0
