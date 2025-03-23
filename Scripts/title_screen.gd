@@ -5,12 +5,16 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	light.global_position = get_global_mouse_position()
-	pass
-
+	
 func _on_credits_button_up() -> void:
-	print("hello")
 	$Popup.show()
 
-
 func _on_play_button_up() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Woods/woods.tscn")
+	get_tree().change_scene_to_file("res://Scenes/others/tutorial.tscn")
+
+func _on_play_button_down() -> void:
+	$AudioStreamPlayer.play()
+
+
+func _on_credits_button_down() -> void:
+	$AudioStreamPlayer.play()

@@ -20,9 +20,9 @@ func _process(delta: float) -> void:
 func change_scene():
 	TransitionScene.scene = "res://Scenes/Woods/woods.tscn"
 	if score >= 15:
-		TransitionScene.get_node("AnimationPlayer").play("transition2")
 		Globals.progress += 1
 		Globals.has_key = true
+		TransitionScene.get_node("AnimationPlayer").play("transition2")
 	else:
 		Globals.has_key = false
 		Globals.has_blueOrb = false

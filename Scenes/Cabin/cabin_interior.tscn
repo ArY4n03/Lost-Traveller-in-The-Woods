@@ -1,15 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://bu0tscy6skcyo"]
+[gd_scene load_steps=6 format=3 uid="uid://bu0tscy6skcyo"]
 
 [ext_resource type="Texture2D" uid="uid://dypgrcqdqppe2" path="res://Sprites/cabin tile.png" id="1_u6sxq"]
 [ext_resource type="PackedScene" uid="uid://bxppgon8f1dap" path="res://Scenes/Player/player.tscn" id="2_uf4q6"]
+[ext_resource type="PackedScene" uid="uid://b63b3jo5sfln1" path="res://Scenes/others/UnknownCharacter.tscn" id="3_4x25q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yap7k"]
+size = Vector2(150, 636)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycs7v"]
+size = Vector2(814, 78)
 
 [node name="Cabin Interior" type="Node2D"]
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -121.0
+offset_top = -153.0
+offset_right = 1788.0
+offset_bottom = 881.0
+texture = ExtResource("1_u6sxq")
+
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 2332.0
-offset_bottom = 1814.0
+offset_left = 364.0
+offset_top = 22.0
+offset_right = 963.0
+offset_bottom = 575.0
 texture = ExtResource("1_u6sxq")
 stretch_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("2_uf4q6")]
-position = Vector2(831, 593)
+position = Vector2(633, 324)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("3_4x25q")]
+position = Vector2(478, 229)
+
+[node name="walls" type="StaticBody2D" parent="."]
+position = Vector2(478, 229)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
+position = Vector2(-185, 49)
+shape = SubResource("RectangleShape2D_yap7k")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
+position = Vector2(557, 62)
+shape = SubResource("RectangleShape2D_yap7k")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
+position = Vector2(159, -244)
+shape = SubResource("RectangleShape2D_ycs7v")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls"]
+position = Vector2(165, 381)
+shape = SubResource("RectangleShape2D_ycs7v")

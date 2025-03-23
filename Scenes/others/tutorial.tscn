@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://m2cfb1ut0mys"]
+
+[ext_resource type="Texture2D" uid="uid://yg8tdjm5r571" path="res://Sprites/grass tile.png" id="1_g6fne"]
+[ext_resource type="Script" path="res://Scripts/tutorial.gd" id="1_vyeqx"]
+[ext_resource type="Texture2D" uid="uid://dpms2gahq88pv" path="res://ScreenShots/screenshot 1.png" id="2_idlaj"]
+[ext_resource type="Texture2D" uid="uid://cuco1a7r3wjs0" path="res://Sprites/blue orb.png" id="3_hjag3"]
+[ext_resource type="Texture2D" uid="uid://crsv6aisomh58" path="res://ScreenShots/Screenshot  2..png" id="3_vb741"]
+[ext_resource type="Texture2D" uid="uid://bqrw2251ax1q4" path="res://Sprites/statue.png" id="4_0bvdf"]
+[ext_resource type="FontFile" uid="uid://csrh3kjb571ni" path="res://Fonts/Jersey10-Regular.ttf" id="5_fbv7u"]
+[ext_resource type="Texture2D" uid="uid://btbx6to2bx5l7" path="res://Sprites/light2.png" id="6_2wdwp"]
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vyeqx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -56.0
+offset_top = -52.0
+offset_right = 1215.0
+offset_bottom = 698.0
+texture = ExtResource("1_g6fne")
+stretch_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(840, 217)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_idlaj")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(294, 211)
+scale = Vector2(0.6, 0.643)
+texture = ExtResource("3_vb741")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(943, 118)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_hjag3")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(655, 332)
+scale = Vector2(2, 2)
+texture = ExtResource("4_0bvdf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 428.0
+offset_right = 457.0
+offset_bottom = 499.0
+theme_override_fonts/font = ExtResource("5_fbv7u")
+theme_override_font_sizes/font_size = 30
+text = "Left Click to move
+Player move in the direction of cursor
+"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 596.0
+offset_top = 421.0
+offset_right = 1001.0
+offset_bottom = 476.0
+theme_override_fonts/font = ExtResource("5_fbv7u")
+theme_override_font_sizes/font_size = 30
+text = "Right click on characters to interact
+Player must be close enough to interact"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(651, 330)
+texture = ExtResource("6_2wdwp")
+texture_scale = 4.23
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(943, 120)
+texture = ExtResource("6_2wdwp")
+texture_scale = 4.23
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_fbv7u")
+theme_override_font_sizes/font_size = 30
+text = "Next"
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

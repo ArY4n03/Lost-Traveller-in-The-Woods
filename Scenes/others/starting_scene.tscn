@@ -1,0 +1,111 @@
+[gd_scene load_steps=7 format=3 uid="uid://c257yu253vox5"]
+
+[ext_resource type="Script" path="res://Scripts/starting_scene.gd" id="1_51a63"]
+[ext_resource type="Texture2D" uid="uid://yg8tdjm5r571" path="res://Sprites/grass tile.png" id="1_fg8cl"]
+[ext_resource type="Theme" uid="uid://dayy82ieyoow2" path="res://Theme/theme1.tres" id="3_1ubgn"]
+
+[sub_resource type="Animation" id="Animation_3558s"]
+resource_name = "typing animation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_qj3fg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5af5x"]
+_data = {
+"RESET": SubResource("Animation_qj3fg"),
+"typing animation": SubResource("Animation_3558s")
+}
+
+[node name="Starting Scene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_51a63")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -71.0
+offset_top = -50.0
+offset_right = 1222.0
+offset_bottom = 704.0
+texture = ExtResource("1_fg8cl")
+stretch_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -448.0
+offset_top = -244.0
+offset_right = 508.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_1ubgn")
+theme_override_font_sizes/normal_font_size = 50
+text = "I am just a normal  traveller with not so normal gift
+Everytime I die I find myself back in time
+\"How dd  I get this ??\" That's a different story
+But for now this story is about when I was lost in the woods"
+scroll_active = false
+scroll_following = true
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5af5x")
+}
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -81.0
+offset_right = -18.0
+offset_bottom = -18.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("3_1ubgn")
+theme_override_font_sizes/font_size = 50
+text = "Next"
+flat = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="button_up" from="Next" to="." method="_on_next_button_up"]

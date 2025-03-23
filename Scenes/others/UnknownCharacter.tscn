@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bexdglfhfhccm" path="res://Scenes/others/intractable_entity.tscn" id="1_he68i"]
 [ext_resource type="Script" path="res://Scripts/unknown_character.gd" id="2_d1tqy"]
 [ext_resource type="Texture2D" uid="uid://bb8ouovooamjd" path="res://Sprites/unknownCharacter.png" id="3_7dekc"]
-[ext_resource type="Texture2D" uid="uid://bxjlsk0yu3y45" path="res://Sprites/light.png" id="4_3agkw"]
+[ext_resource type="Texture2D" uid="uid://btbx6to2bx5l7" path="res://Sprites/light2.png" id="4_qrlpy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ric3k"]
 size = Vector2(42, 68)
@@ -29,6 +29,6 @@ shape = SubResource("CircleShape2D_3i1mr")
 [node name="PointLight2D" type="PointLight2D" parent="." index="3"]
 position = Vector2(2, -3)
 color = Color(0.704478, 0.699389, 0, 1)
-texture = ExtResource("4_3agkw")
-texture_scale = 2.12
+texture = ExtResource("4_qrlpy")
+texture_scale = 3.61
 height = 10.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtjmovqbbxcam"]
+[gd_scene load_steps=8 format=3 uid="uid://dtjmovqbbxcam"]
 
 [ext_resource type="Script" path="res://Scripts/blue_orb_mini_game.gd" id="1_1ben0"]
 [ext_resource type="Texture2D" uid="uid://yg8tdjm5r571" path="res://Sprites/grass tile.png" id="1_nqdwk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://blja7yao35c1" path="res://Sprites/dice (1).png" id="3_hj0nl"]
 [ext_resource type="Texture2D" uid="uid://dtlprvg7nlxt5" path="res://Sprites/flag.png" id="4_qw15b"]
 [ext_resource type="Theme" uid="uid://dayy82ieyoow2" path="res://Theme/theme1.tres" id="5_83lyu"]
+[ext_resource type="Texture2D" uid="uid://bqrw2251ax1q4" path="res://Sprites/statue.png" id="7_ipssb"]
 
 [node name="BlueOrbMiniGame" type="Node2D"]
 script = ExtResource("1_1ben0")
@@ -47,5 +48,20 @@ offset_bottom = 119.0
 theme = ExtResource("5_83lyu")
 theme_override_font_sizes/font_size = 50
 text = "        Roll Dice"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 87.0
+offset_top = 62.0
+offset_right = 379.0
+offset_bottom = 117.0
+theme = ExtResource("5_83lyu")
+theme_override_font_sizes/font_size = 50
+text = "Turns : 15"
+
+[node name="Statue" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1004, 606)
+scale = Vector2(5, 5)
+texture = ExtResource("7_ipssb")
 
 [connection signal="button_up" from="RollDiceBtn" to="." method="roll_dice"]

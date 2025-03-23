@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7kv72f81e7mq"]
+[gd_scene load_steps=9 format=3 uid="uid://b7kv72f81e7mq"]
 
 [ext_resource type="Texture2D" uid="uid://yg8tdjm5r571" path="res://Sprites/grass tile.png" id="1_3qmrr"]
 [ext_resource type="PackedScene" uid="uid://bxppgon8f1dap" path="res://Scenes/Player/player.tscn" id="1_w1qyf"]
 [ext_resource type="Script" path="res://Scripts/woods.gd" id="1_yexta"]
 [ext_resource type="PackedScene" uid="uid://y1lqncqm0rcw" path="res://Scenes/Cabin/cabin.tscn" id="3_owqbf"]
+[ext_resource type="Theme" uid="uid://dayy82ieyoow2" path="res://Theme/theme1.tres" id="4_qexmd"]
+[ext_resource type="Texture2D" uid="uid://cd1vghja7quxr" path="res://Sprites/white bg.png" id="4_v25my"]
 [ext_resource type="Texture2D" uid="uid://dstt6p8hkx1r6" path="res://Sprites/tree.png" id="6_3c1jy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hue0"]
+size = Vector2(3214, 112)
 
 [node name="Woods" type="Node2D"]
 script = ExtResource("1_yexta")
@@ -17,8 +22,10 @@ offset_right = 2612.0
 offset_bottom = 649.0
 texture = ExtResource("1_3qmrr")
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_w1qyf")]
+z_index = 1
 position = Vector2(1922, 316)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -29,9 +36,29 @@ limit_right = 2500
 limit_bottom = 610
 
 [node name="Popup" type="Popup" parent="."]
+initial_position = 3
+size = Vector2i(800, 600)
+current_screen = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Popup"]
+scale = Vector2(2, 2)
+texture = ExtResource("4_v25my")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Popup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_qexmd")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "
+"
 
 [node name="Cabin" parent="." instance=ExtResource("3_owqbf")]
-position = Vector2(817, 323)
+position = Vector2(655, 237)
+scale = Vector2(2.5, 2.5)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.404511, 0.404511, 0.404511, 1)
@@ -165,3 +192,14 @@ texture = ExtResource("6_3c1jy")
 [node name="Tree32" type="Sprite2D" parent="Trees"]
 position = Vector2(1051, 71)
 texture = ExtResource("6_3c1jy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(857, 95)
+shape = SubResource("RectangleShape2D_2hue0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(857, 565)
+shape = SubResource("RectangleShape2D_2hue0")

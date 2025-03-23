@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://croxyevr0u1y8"]
+
+[ext_resource type="Texture2D" uid="uid://bg5om8i8n3jb7" path="res://Sprites/story paper.png" id="1_voeqj"]
+[ext_resource type="Script" path="res://Scripts/story_papers.gd" id="1_y5bn8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vqcn1"]
+radius = 23.0489
+
+[node name="StoryPapers" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_y5bn8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_voeqj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("CircleShape2D_vqcn1")

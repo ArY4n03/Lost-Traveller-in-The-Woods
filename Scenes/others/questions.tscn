@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://btlfo7rrt4auo"]
+[gd_scene load_steps=7 format=3 uid="uid://btlfo7rrt4auo"]
 
 [ext_resource type="Script" path="res://Scripts/questions.gd" id="1_m8hth"]
 [ext_resource type="Texture2D" uid="uid://yg8tdjm5r571" path="res://Sprites/grass tile.png" id="1_omxnv"]
 [ext_resource type="Theme" uid="uid://dayy82ieyoow2" path="res://Theme/theme1.tres" id="2_vx0j2"]
 [ext_resource type="Texture2D" uid="uid://bpmsl1nhxlq6y" path="res://Sprites/question text border.png" id="4_l55w4"]
 [ext_resource type="AudioStream" uid="uid://c3l83yj1yb3is" path="res://Sound Effects/zapsplat_horror_jump_scare_bright_hit_discordant_long_tail_635447.mp3" id="5_ah1b8"]
+[ext_resource type="AudioStream" uid="uid://bfi2xsbhirs3b" path="res://Sound Effects/zapsplat_household_remote_control_cheap_plastic_hollow_button_click_003_85583.mp3" id="6_aj6wk"]
 
 [node name="Questions" type="Control"]
 layout_mode = 3
@@ -37,6 +38,7 @@ offset_right = 165.0
 offset_bottom = 114.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
 scroll_active = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -46,9 +48,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -282.0
-offset_top = -152.0
-offset_right = 62.0
+offset_left = -332.0
+offset_top = -164.0
+offset_right = 112.0
 offset_bottom = -112.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -58,11 +60,13 @@ theme_override_constants/separation = 200
 [node name="Option 1" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_vx0j2")
+theme_override_font_sizes/font_size = 40
 text = "option 2"
 
 [node name="Option 2" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_vx0j2")
+theme_override_font_sizes/font_size = 40
 text = "option 2"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -77,3 +81,6 @@ texture = ExtResource("4_l55w4")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ah1b8")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_aj6wk")

@@ -6,7 +6,7 @@ var dir = Vector2();
 var mouse_pos = null;
 var dis = 0
 var can_play_audio = true
-var dialogues = {0:"So this is\nthat wood",1:"statue",2:"Was that statue\nthere all along",
+var dialogues = {0:"Its so dark\nhere",1:"I shoudnt have\nsaid that",2:"I dont remember\nthat statue",
 				 3:"Blue Orb!!!",4:"Finally Got \nThe Key"}
 
 func _ready():

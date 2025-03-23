@@ -15,9 +15,9 @@ func _ready() -> void:
 	
 func move_blueOrb(distance):
 	if distance != -1:
-		$Label.text = "You can move " + str(distance) + " steps forward"
+		$Label.text = "Move " + str(distance) + " steps forward"
 	else:
-		$Label.text = "You can move 1 steps backward"
+		$Label.text = "Move 1 steps backward"
 	var tween = get_tree().create_tween()
 	tween.tween_property($"Blue orb","global_position:x",$"Blue orb".global_position.x + (32*distance),2.0)
 	print(distance)
@@ -39,6 +39,7 @@ func tween_finished():
 	turns_left -= 1
 	can_roll = true
 	TransitionScene.scene = "res://Scenes/Woods/woods.tscn"
+	_update_turnsLabel()
 	if $"Blue orb".global_position.x > 760:
 		TransitionScene.find_child("TextureRect").visible = true
 		TransitionScene.get_node("AnimationPlayer").play("transition2")
@@ -46,5 +47,8 @@ func tween_finished():
 	if turns_left <0:
 		TransitionScene.find_child("TextureRect").visible = true
 		Globals.player_died()
+
+func _update_turnsLabel():
+	$Label2.text = "Turns : " + str(turns_left)
 		
 	

@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Traveller Lost in Woods"
+config/name="Lost Traveller  in The  Woods"
+run/main_scene="res://Scenes/others/title_screen.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
